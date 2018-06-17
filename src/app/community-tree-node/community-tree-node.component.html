@@ -1,0 +1,13 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  {{node.name}}
+  <span fxFlex></span>
+  <button mat-mini-fab class="node-options" (click)="showMenu($event, node)" [matMenuTriggerFor]="nodeMenu">
+    <mat-icon>menu</mat-icon>
+  </button>
+ </div>
+
+<mat-menu #nodeMenu xPosition="before">
+  <button *ngIf="node.path != '/'" mat-menu-item (click)="moveTo(node, '')">Move community to root</button>
+  <button mat-menu-item (click)="showMoveToDialog(node)">Move to different parent</button>
+
+</mat-menu>
